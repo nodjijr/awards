@@ -26,7 +26,6 @@ public class MovieController {
 
 	@Autowired
 	private MovieService movieService;
-
 	@GetMapping("/{year}")
 	public ResponseEntity<List<MovieDTO>> getMovies(@PathVariable(name = "year") Integer year) {
 		List<MovieDTO> movies = movieService.getMoviesByYear(year);

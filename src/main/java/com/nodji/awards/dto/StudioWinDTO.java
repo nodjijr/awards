@@ -11,4 +11,9 @@ public class StudioWinDTO {
 
 	private Long winCount;
 
+	public StudioWinDTO (String name, Long winCount) {
+		this.name = name;
+		this.winCount = winCount;
+	}
+
 }

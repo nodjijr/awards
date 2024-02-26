@@ -1,0 +1,43 @@
+---
+:spring_version: current
+:toc:
+:project_id: desafio-rest-service
+:spring_version: current
+:spring_boot_version: 1.3.0.M4
+:icons: font
+:source-highlighter: prettify
+
+
+== Descrição
+
+Essa solução fornece os vencedores da categoria Pior Filme do Golden Raspberry Awards.
+
+O servidor esta configurado para subir com a porta de forma aleátoria, após a criação do server, verifique em qual porta foi criado
+== Endpoins
+
+Obtém os vencedores, informando um ano.
+----
+http://localhost:8081/api/movie/{year}
+----
+Obtém os anos com mais de um vencedor.
+----
+http://localhost:8081/api/movie/years
+----
+Remove um filme especifico pelo seu identificador.
+----
+http://localhost:8081/api/movie/{id}
+----
+Obtém os produtores premiados, com maior e menor periodo de anos
+----
+http://localhost:8081/api/winners/interval-prizes
+----
+Obtém os estudios premiados
+----
+http://localhost:8081/api/studio/winners
+
+== Para Rodar o Aplicativo
+
+----
+1 - Na pasta do projeto no Packege Explorer, navege até o arquivo Application (src/main/java) na raiz do pacote com.nodji.awards
+2 - Clique com o botão direito em cima do arquivo Application.java-> Rum as-> Java Application
+...
