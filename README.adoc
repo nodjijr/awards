@@ -33,6 +33,7 @@ http://localhost:8081/api/winners/interval-prizes
 Obtém os estudios premiados
 ----
 http://localhost:8081/api/studio/winners
+----
 
 ## Para executar o projeto
 Para executar o projeto, nenhuma instalação externa é necessária. Ao ser iniciada, a aplicação cria o banco de dados e o popula com os dados do arquivo movielist.csv, que se encontra em *src/main/resources/*.
