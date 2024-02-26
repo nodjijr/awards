@@ -12,9 +12,8 @@
 
 Essa solução fornece os vencedores da categoria Pior Filme do Golden Raspberry Awards.
 
-O servidor esta configurado para subir com a porta de forma aleátoria, após a criação do server, verifique em qual porta foi criado
-== Endpoins
 
+## EndPoints
 Obtém os vencedores, informando um ano.
 ----
 http://localhost:8081/api/movie/{year}
@@ -35,9 +34,16 @@ Obtém os estudios premiados
 ----
 http://localhost:8081/api/studio/winners
 
-== Para Rodar o Aplicativo
+## Para executar o projeto
+Para executar o projeto, nenhuma instalação externa é necessária. Ao ser iniciada, a aplicação cria o banco de dados e o popula com os dados do arquivo movielist.csv, que se encontra em *src/main/resources/*.
+1. Clone o repositório o faça download;
+2. Se está usando uma ferramenta externa a IDE, importe o projeto como projeto Maven existente;
+3. Execute o comando Maven abaixo:
+```sh
+        $ mvn install -Dmaven.test.skip=true
+```
+4. Para iniciar a aplicação clique no projeto com o botão direito do mouse, vá até a opção *Run As* e selecione Spring Boot App.
 
-----
-1 - Na pasta do projeto no Packege Explorer, navege até o arquivo Application (src/main/java) na raiz do pacote com.nodji.awards
-2 - Clique com o botão direito em cima do arquivo Application.java-> Rum as-> Java Application
-...
+## Testes
+Para executar os testes abra a classe AppTest.java, clique em Run -> Run As -> JUnit Test. Isso fará com que todos os testes de integração implementados sejam executados.
+
