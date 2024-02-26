@@ -46,5 +46,6 @@ Para executar o projeto, nenhuma instalação externa é necessária. Ao ser ini
 4. Para iniciar a aplicação clique no projeto com o botão direito do mouse, vá até a opção *Run As* e selecione Spring Boot App.
 
 ## Testes
-Para executar os testes abra a classe AppTest.java, clique em Run -> Run As -> JUnit Test. Isso fará com que todos os testes de integração implementados sejam executados.
+Para executar os testes abra a classe AppTest.java, clique em Run -> Run As -> JUnit Test. 
+Isso fará com que todos os testes de integração implementados sejam executados.
 
