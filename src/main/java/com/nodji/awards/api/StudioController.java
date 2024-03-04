@@ -12,8 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nodji.awards.dto.StudioDTO;
 import com.nodji.awards.service.StudioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/studio")
+@Tag(name = "Studio", description = "the Studio Api")
 public class StudioController {
 
 	Logger logger = LoggerFactory.getLogger(StudioController.class);
@@ -21,6 +27,8 @@ public class StudioController {
 	@Autowired
 	private StudioService studioService;
 
+	@Operation(summary = "Buscar estudios premiados", description = "buscar as entidades de estudios premiados e seus dados da base de dados")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@GetMapping("/winners")
 	public ResponseEntity<StudioDTO> getGreatestWinners() {
 		StudioDTO dto = studioService.getGreatestWinners();

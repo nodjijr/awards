@@ -12,8 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nodji.awards.dto.ProducerMinMaxPrizesDTO;
 import com.nodji.awards.service.ProducerService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("producer")
+@Tag(name = "Producer", description = "the Producer Api")
 public class ProducerController {
 
 	Logger logger = LoggerFactory.getLogger(ProducerController.class);
@@ -21,6 +27,8 @@ public class ProducerController {
 	@Autowired
 	private ProducerService producerService;
 
+	@Operation(summary = "Buscar produtores premiados", description = "buscar as entidades de produtores premiados e seus dados da base de dados")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@GetMapping("interval-prizes")
 	public ResponseEntity<ProducerMinMaxPrizesDTO> getMaxAndMinPrizes() {
 		ProducerMinMaxPrizesDTO dto = producerService.getMaxAndMinPrizes();
