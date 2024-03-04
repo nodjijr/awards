@@ -27,17 +27,18 @@ public class StudioController {
 	@Autowired
 	private StudioService studioService;
 
-	@Operation(summary = "Buscar estudios premiados", description = "buscar as entidades de estudios premiados e seus dados da base de dados")
+	/**
+	 * @return {@link list of StudioDTO}
+	 */
+	@Operation(summary = "Buscar estudios premiados", description = "Obtém os estudios premiados")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@GetMapping("/winners")
 	public ResponseEntity<StudioDTO> getGreatestWinners() {
 		StudioDTO dto = studioService.getGreatestWinners();
-
 		HttpStatus status = HttpStatus.OK;
 		if (dto.getStudios() == null || dto.getStudios().isEmpty()) {
 			status = HttpStatus.NO_CONTENT;
 		}
-
 		return new ResponseEntity<>(dto, status);
 	}
 

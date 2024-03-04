@@ -36,7 +36,7 @@ public class MovieController {
 	/**
 	 * @return {@link list of MovieDTO}
 	 */
-	@Operation(summary = "Buscar filme premiado por ano", description = "buscar as entidades dos filmes premiados por ano e seus dados da base de dados")
+	@Operation(summary = "Filmes vencedores por ano", description = "Obtém os filmes vencedores, informando o ano.")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@GetMapping("/{year}")
 	public ResponseEntity<List<MovieDTO>> getMovies(@PathVariable(name = "year") Integer year) {
@@ -51,7 +51,7 @@ public class MovieController {
 	/**
 	 * @return {@link YearWinnerDTO}
 	 */
-	@Operation(summary = "Buscar os anos premiados", description = "buscar as entidades dos filmes premiados nos anos com mais de um vencedor e seus dados da base de dados")
+	@Operation(summary = "Buscar os anos premiados", description = "Obtém os anos com mais de um filme vencedor.")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@GetMapping("/years")
 	public ResponseEntity<YearWinnerDTO> getYearsWithMoreThanOneWinners() {
@@ -63,7 +63,7 @@ public class MovieController {
 		return new ResponseEntity<>(dto, status);
 	}
 
-	@Operation(summary = "Remover filme", description = "remover uma entidade de filme especifica da base de dados")
+	@Operation(summary = "Remover filme", description = "Remove um filme especifico pelo seu identificador")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> removeMovie(@PathVariable(name = "id") Long id) throws BadRequestException {

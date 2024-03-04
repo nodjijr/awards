@@ -27,17 +27,18 @@ public class ProducerController {
 	@Autowired
 	private ProducerService producerService;
 
-	@Operation(summary = "Buscar produtores premiados", description = "buscar as entidades de produtores premiados e seus dados da base de dados")
+	/**
+	 * @return {@link list of ProducerMinMaxPrizesDTO}
+	 */
+	@Operation(summary = "Buscar produtores premiados", description = "Obtém os produtores premiados, com maior e menor periodo de anos")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso") })
 	@GetMapping("interval-prizes")
 	public ResponseEntity<ProducerMinMaxPrizesDTO> getMaxAndMinPrizes() {
 		ProducerMinMaxPrizesDTO dto = producerService.getMaxAndMinPrizes();
-
 		HttpStatus status = HttpStatus.OK;
 		if (dto.getMax().isEmpty() && dto.getMin().isEmpty()) {
 			status = HttpStatus.NO_CONTENT;
 		}
-
 		return new ResponseEntity<>(dto, status);
 	}
 
